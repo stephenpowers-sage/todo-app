@@ -1,4 +1,5 @@
 class ToDosController < ApplicationController
+  before_action :authorized
   before_action :set_to_do, only: [:show, :edit, :update, :destroy]
 
   # GET /to_dos
@@ -71,5 +72,9 @@ class ToDosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def to_do_params
       params.require(:to_do).permit(:title, :description, :completed)
+    end
+
+    def authorized
+      redirect_to '/login' unless logged_in?
     end
 end
