@@ -19,6 +19,10 @@
     <%= f.label :description %>
     <%= f.text_field :description, class: 'form-control' %>
   </div>
+  <div>
+    <%= f.check_box :completed, {}, true, false %>
+    <%= f.label "Completed" %>
+  </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary btn-block' %>
   </div>
